@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* #container{
+            width:25% ;
+            height:500%;
+            margin:auto;
+            background-color: rgb(188,181,175);
+            margin-top:150px;
+            display:flex;
+            border-radius:10px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+        }
+        #container>form>input{
+            width:80%;
+            height:50px;
+            margin:20px;
+            font-size:20px;
+            border-radius:10px;
+            margin-left:50px;
+        }
+        #container>form>input:nth-last-child(1){
+            width:20%;
+            background-color:blue;
+            color:white;
+            margin-left:200px;
+        } */
+    </style>
+</head>
+<body>
+    <div id = "container">
+        <form>
+            <input id = "image" type="url" placeholder = "Enter image"/>
+            <input id = "name" type="text" placeholder = "Enter name"/>
+            <input id = "name2" type="text" placeholder = "Enter name2"/>
+            <input id = "price" type="number" placeholder = "Enter price"/>
+            <input  type="submit" value = "Submit">
+        </form>
+    </div>
+</body>
+</html>
+<script>
+    document.querySelector("form").addEventListener("submit", formSubmit);
+    var Eye3 = JSON.parse(localStorage.getItem("grandebrow"))||[];
+
+        function formSubmit(event){
+            event.preventDefault();
+            var image= document.querySelector("#image").value;
+            var name = document.querySelector("#name").value;
+            var name2 = document.querySelector("#name2").value;
+            var price = document.querySelector("#price").value;
+
+            var userData = {
+                imageUrl : image,
+                brandName : name,
+                brandName2: name2,
+                priceOf: price,
+            };
+
+            Eye3.push(userData);
+            localStorage.setItem("grandebrow", JSON.stringify(Eye3));
+            alert("Signup Success");
+            
+        }
+
+    
+</script>
